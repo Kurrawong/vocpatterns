@@ -4,6 +4,7 @@ author = 'Nicholas Car <nick@kurrawong.net>'
 release = '1.0.0'
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+html_baseurl = '/vocpatterns/'
 html_theme = 'alabaster'
 html_permalinks = False
 html_static_path = ['_static']
