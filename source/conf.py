@@ -1,0 +1,12 @@
+project = 'VocPatterns'
+copyright = '2023, Nicholas Car'
+author = 'Nicholas Car <nick@kurrawong.net>'
+release = '1.0.0'
+templates_path = ['_templates']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+html_theme = 'alabaster'
+html_permalinks = False
+html_static_path = ['_static']
+extensions = ["myst_parser"]
+myst_title_to_header = True
+myst_heading_anchors = 2
