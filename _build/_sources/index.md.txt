@@ -14,16 +14,16 @@ If you are new to the SKOS data mode or vocabulary modelling in general, you sho
 
 ## Questions & Patterns
 
-The questions are given below with links to one or more _patterns_ - common ways of working - that I think address them.
+The questions are given below with links to one or more _patterns_ - common ways of working - that we think address them.
 
 ```{eval-rst}
-.. csv-table:: 
+.. csv-table::
    :header: "Question", "Pattern(s)"
 
    "How do I create and maintain versions of Cocepts within a vocabulary?", "`Concept Versioning <patterns/concept-versioning.html>`_"
    "How to I indicate the source of my vocabulary?", "`Vocab Derivation <patterns/vocab-derivation.html>`_, `Provenance <patterns/provenance.html>`_"
    "How do I indicate the provenance/lineage of Concepts, Collections & ConceptSchemes?", "`Provenance <patterns/provenance.html>`_"
-   "How do I reuse others' vocabularies, with or without alteration?", "`Vocab Derivation <patterns/vocab-derivation.html>`_
+   "How do I reuse others' vocabularies, with or without alteration?", "`Vocab Derivation <patterns/vocab-derivation.html>`_"
 ```
 
 ```{eval-rst}
