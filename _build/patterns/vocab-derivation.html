@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Vocabulary Derivation Pattern</title>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <link rel="stylesheet" href="../_static/ktheme.css" type="text/css" />
+  </head>
+  <body>
+    <div style="grid-column:2; grid-row:1;">
+      <img src="../_static/vocpatterns.svg" alt="Kurrawong Logo" style="width:150px;" />
+    </div>
+    <div style="grid-column:2; grid-row:2; margin-top:150px;">
+      <ul id="nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/intro-to-skos.html">Intro to SKOS</a></li>
+        <li>
+          <strong>Patterns</strong>
+          <ul>
+            <li><a href="/patterns/vocab-derivation.html">Vocab Derivation</a></li>
+            <li><a href="/patterns/concept-versioning.html">Concept Versioning</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div style="grid-column:3; grid-row:2; margin-right: 10px;"><section id="vocabulary-derivation-pattern">
+<h1>Vocabulary Derivation Pattern</h1>
+<p><em>How to I indicate the source of my vocabulary?</em></p>
+<p><em>How do I reuse others’ vocabularies, with or without alteration?</em></p>
+<section id="context">
+<h2>Context</h2>
+<p>Often many vocabularies are needed for use within a particular environment, and of those, often some are well-known or standardised vocabs, others are local: things we have to create ourselves. We may want to store all the vocabs we use - ours and others’ - locally to provide for easy or managed use.</p>
+<p>To ensure users know which vocabs can be extended or altered locally - with ‘our’ authority - compared with those that cannot and perhaps require involvement in a larger management regime, we need to indicate vocabs origins and also the <em>derivation mode</em>: the way in which we use external vocabs.</p>
+</section>
+<section id="solution">
+<h2>Solution</h2>
+<p>Store all vocabularies locally but use several properties for the vocabulary to indicate a vocab’s:</p>
+<ul class="simple">
+<li><p>publisher/maintainer</p></li>
+<li><p>provenance</p></li>
+<li><p>derivation mode</p></li>
+</ul>
+<section id="publisher-maintainer">
+<h3>1. publisher/maintainer</h3>
+<p>There are several properties commonly used to indicate a publisher and also a <a class="reference internal" href="qualified-role.html"><span class="doc std std-doc">Qualified Role Pattern</span></a>. The common properties indicated for use here are:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://schema.org">schema.org’s</a> <code class="docutils literal notranslate"><span class="pre">publisher</span></code></p></li>
+<li><p><a class="reference external" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/">Dublin Core Term’s</a> <code class="docutils literal notranslate"><span class="pre">publisher</span></code></p></li>
+<li><p><a class="reference internal" href="qualified-role.html"><span class="doc std std-doc">Qualified Role Pattern</span></a> using <a class="reference external" href="https://www.w3.org/TR/vocab-dcat/">DCAT’s</a> <code class="docutils literal notranslate"><span class="pre">hadRole</span></code> with a role from a vocab</p>
+<ul>
+<li><p>such as the <a class="reference external" href="http://linked.data.gov.au/def/iso19115-1/RoleCode">ISO’s 19115-1 Role Codes</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="provenance">
+<h3>2. provenance</h3>
+<p>Use the <a class="reference internal" href="provenance.html"><span class="doc std std-doc">Provenance Pattern</span></a>.</p>
+</section>
+<section id="derivation-mode">
+<h3>3. derivation mode</h3>
+<p>Indicate the way in which this vocabulary derives from its source using the <a class="reference external" href="https://linked.data.gov.au/def/vocab-derivation-modes">Vocabulary Derivation Modes vocab</a>.</p>
+<p><em>This property is only relevant if the source is a controlled vocabulary, as opposed to a textual source from which this vocab ie extracted. Ideally , the source should be a SKOS vocab too.</em></p>
+</section>
+</section>
+<section id="example-s">
+<h2>Example(s)</h2>
+<section id="id1">
+<h3>1. publisher/maintainer</h3>
+<p>This example uses <code class="docutils literal notranslate"><span class="pre">&lt;https://schema.org/publisher&gt;</span></code>, so we understand that <code class="docutils literal notranslate"><span class="pre">&lt;http://example.com/agent/y&gt;</span></code> publishes this vocabulary.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PREFIX</span> <span class="n">sdo</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">schema</span><span class="o">.</span><span class="n">org</span><span class="o">/&gt;</span>
+<span class="n">PREFIX</span> <span class="n">skos</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">w3</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="mi">2004</span><span class="o">/</span><span class="mi">02</span><span class="o">/</span><span class="n">skos</span><span class="o">/</span><span class="n">core</span><span class="c1">#&gt;</span>
+
+<span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">vocab</span><span class="o">/</span><span class="n">x</span><span class="o">&gt;</span>
+    <span class="n">a</span> <span class="n">skos</span><span class="p">:</span><span class="n">ConceptScheme</span> <span class="p">;</span>
+    <span class="n">skos</span><span class="p">:</span><span class="n">prefLabel</span> <span class="s2">&quot;Vocab X&quot;</span><span class="nd">@en</span> <span class="p">;</span>
+    <span class="o">...</span>
+    <span class="n">sdo</span><span class="p">:</span><span class="n">publisher</span> <span class="o">&lt;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">agent</span><span class="o">/</span><span class="n">y</span><span class="o">&gt;</span> <span class="p">;</span>
+    <span class="o">...</span>
+<span class="o">.</span>
+</pre></div>
+</div>
+<p>Note that in this example, the <em>agent</em>, the publisher, is referred to by IRI, not by text, as per the pattern <a class="reference internal" href="agent-referencing.html"><span class="doc std std-doc">Agent Referencing</span></a>.</p>
+<p>If we wanted to indicate another role for the agent, other than <code class="docutils literal notranslate"><span class="pre">publisher</span></code>, we could either look for other schema.org/Dublin Core properties, such as Dublin Core’s <code class="docutils literal notranslate"><span class="pre">creator</span></code> or we could use a role vocabulary within the <a class="reference internal" href="qualified-role.html"><span class="doc std std-doc">Qualified Role Pattern</span></a> like this where <code class="docutils literal notranslate"><span class="pre">&lt;http://example.com/agent/y&gt;</span></code> is indicated as the vocabulary’s <code class="docutils literal notranslate"><span class="pre">custodian</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PREFIX</span> <span class="n">dcat</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">w3</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">ns</span><span class="o">/</span><span class="n">dcat</span><span class="c1">#&gt;</span>
+<span class="n">PREFIX</span> <span class="n">isorole</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">linked</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">gov</span><span class="o">.</span><span class="n">au</span><span class="o">/</span><span class="n">def</span><span class="o">/</span><span class="n">iso19115</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">RoleCode</span><span class="o">/&gt;</span>
+<span class="n">PREFIX</span> <span class="n">prov</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">w3</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">ns</span><span class="o">/</span><span class="n">prov</span><span class="c1">#&gt;</span>
+<span class="n">PREFIX</span> <span class="n">sdo</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">schema</span><span class="o">.</span><span class="n">org</span><span class="o">/&gt;</span>
+<span class="n">PREFIX</span> <span class="n">skos</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">w3</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="mi">2004</span><span class="o">/</span><span class="mi">02</span><span class="o">/</span><span class="n">skos</span><span class="o">/</span><span class="n">core</span><span class="c1">#&gt;</span>
+
+<span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">vocab</span><span class="o">/</span><span class="n">x</span><span class="o">&gt;</span>
+    <span class="n">a</span> <span class="n">skos</span><span class="p">:</span><span class="n">ConceptScheme</span> <span class="p">;</span>
+    <span class="n">skos</span><span class="p">:</span><span class="n">prefLabel</span> <span class="s2">&quot;Vocab X&quot;</span><span class="nd">@en</span> <span class="p">;</span>
+    <span class="o">...</span>
+    <span class="n">prov</span><span class="p">:</span><span class="n">qualifiedAttribution</span> <span class="p">[</span>
+        <span class="n">prov</span><span class="p">:</span><span class="n">agent</span> <span class="o">&lt;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">agent</span><span class="o">/</span><span class="n">y</span><span class="o">&gt;</span> <span class="p">;</span>
+        <span class="n">dcat</span><span class="p">:</span><span class="n">hadRole</span> <span class="n">isorole</span><span class="p">:</span><span class="n">custodian</span> <span class="p">;</span>
+    <span class="p">]</span> <span class="p">;</span>
+    <span class="o">...</span>
+<span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h3>2. provenance</h3>
+<p>When the source vocab is a Linked Data object, Vocab M:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PREFIX</span> <span class="n">sdo</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">schema</span><span class="o">.</span><span class="n">org</span><span class="o">/&gt;</span>
+<span class="n">PREFIX</span> <span class="n">skos</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">w3</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="mi">2004</span><span class="o">/</span><span class="mi">02</span><span class="o">/</span><span class="n">skos</span><span class="o">/</span><span class="n">core</span><span class="c1">#&gt;</span>
+
+<span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">vocab</span><span class="o">/</span><span class="n">x</span><span class="o">&gt;</span>
+    <span class="n">a</span> <span class="n">skos</span><span class="p">:</span><span class="n">ConceptScheme</span> <span class="p">;</span>
+    <span class="n">skos</span><span class="p">:</span><span class="n">prefLabel</span> <span class="s2">&quot;Vocab X&quot;</span><span class="nd">@en</span> <span class="p">;</span>
+    <span class="o">...</span>
+    <span class="n">prov</span><span class="p">:</span><span class="n">wasDerivedFrom</span> <span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">vocab</span><span class="o">/</span><span class="n">m</span><span class="o">&gt;</span> <span class="p">;</span>
+    <span class="o">...</span>
+<span class="o">.</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>derivation mode</strong></p></li>
+</ol>
+<p>When this vocab is a subset - not an extension - of the source vocab from which it is derived, Vocab M:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PREFIX</span> <span class="n">sdo</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">schema</span><span class="o">.</span><span class="n">org</span><span class="o">/&gt;</span>
+<span class="n">PREFIX</span> <span class="n">skos</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">w3</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="mi">2004</span><span class="o">/</span><span class="mi">02</span><span class="o">/</span><span class="n">skos</span><span class="o">/</span><span class="n">core</span><span class="c1">#&gt;</span>
+
+<span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">vocab</span><span class="o">/</span><span class="n">x</span><span class="o">&gt;</span>
+    <span class="n">a</span> <span class="n">skos</span><span class="p">:</span><span class="n">ConceptScheme</span> <span class="p">;</span>
+    <span class="n">skos</span><span class="p">:</span><span class="n">prefLabel</span> <span class="s2">&quot;Vocab X&quot;</span><span class="nd">@en</span> <span class="p">;</span>
+    <span class="o">...</span>
+    <span class="n">prov</span><span class="p">:</span><span class="n">qualifiedDerivation</span> <span class="p">[</span>
+      <span class="n">prov</span><span class="p">:</span><span class="n">entity</span> <span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">vocab</span><span class="o">/</span><span class="n">m</span><span class="o">&gt;</span> <span class="p">;</span>
+      <span class="n">dcat</span><span class="p">:</span><span class="n">hadRole</span> <span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">vocab</span><span class="o">/</span><span class="n">m</span><span class="o">&gt;</span> <span class="p">;</span>
+    <span class="p">]</span> <span class="p">;</span>
+    <span class="o">...</span>
+<span class="o">.</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="discussion">
+<h2>Discussion</h2>
+<p>With the specification of these properties, it is clear to users whether <em>we</em> are the authors of this vocab and, if not, who is. Also, we users can see that if this vocab is derived from another, just how it is so derived.</p>
+<p>The <a class="reference external" href="https://linked.data.gov.au/def/vocab-derivation-modes">Vocabulary Derivation Modes vocab</a> includes the following derivation modes:</p>
+<ul class="simple">
+<li><p>Direct</p></li>
+<li><p>Extension</p></li>
+<li><p>Relabelling</p></li>
+<li><p>Subsetting</p></li>
+<li><p>Subsetting and Extension</p></li>
+</ul>
+<p>The vocab itself defines these modes but just for example: use <em>Subsetting</em> when “the reusing vocabulary only subsets the original but does not extend it”. use of this derivation mode indicator will assure the user that any terms found in this derived vocab are also present in the original, thus any use of this vocab is conformant with use of the original.</p>
+</section>
+<section id="related">
+<h2>Related</h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="provenance.html"><span class="doc std std-doc">Provenance</span></a></p></li>
+<li><p><a class="reference internal" href="concept-reuse.html"><span class="doc std std-doc">Concept Reuse</span></a></p></li>
+</ul>
+</section>
+<section id="further-reading">
+<h2>Further Reading</h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://linked.data.gov.au/def/vocab-derivation-modes">Vocabulary Derivation Modes vocab</a></p></li>
+</ul>
+</section>
+</section>
+</div>
+    <footer style="grid-column:3; grid-row:3; margin-right: 10px;">
+      <p>
+        <a href="https://kurrawong.net/pages/contact.html">Contact</a>
+        <span>|</span>
+        <a href="info@kurrawong.net">info@kurrawong.net</a>
+        <span>|</span>
+        <a href="https://github.com/Kurrawong">@Kurrawong on GitHub</a>
+      </p>
+      <p>
+        &copy; KurrawongAI, 2023
+        <span>|</span>
+        Licensed using <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons BY 4.0</a>
+      </p>
+    </footer>
+  </body>
+</html>

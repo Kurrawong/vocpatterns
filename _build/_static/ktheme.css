@@ -1,0 +1,109 @@
+/*@import '../alabaster.css';*/
+
+body {
+    display: grid;
+    grid-template-columns: 100px 350px auto;
+    grid-template-rows: 120px 1fr 120px;
+    width: 100%;
+    margin: 0 auto;
+    font-family: sans-serif;
+    line-height: 1.25em;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+h2 {
+    margin-top: 2em;
+}
+
+h1, h2, h3, h4 {
+    font-family: Candara ;
+}
+
+#kurrawongai h1 {
+    display:none;
+}
+
+a {
+    color: #3366ff;
+}
+
+ul#nav {
+    list-style-type: none;
+}
+
+ul#nav li {
+    margin: 20px;
+    font-size: 1.25em;
+}
+
+.tbl table {
+    border: solid 1px black;
+    border-collapse: collapse;
+    width:65%;
+}
+
+.tbl td {
+    border: solid 1px black;
+    padding: 5px;
+}
+
+.case-study {
+    background-color: rgba(51, 102, 255, 0.15);
+    padding: 10px 20px 1px 20px;
+    width: 50%;
+}
+
+.case-study h3 {
+    margin-top: 0;
+}
+
+.case-study img {
+    margin-top: 10px;
+}
+
+.project {
+    border: solid 4px rgba(51, 102, 255, 0.15);
+}
+
+footer {
+    border-top: solid 1px black;
+}
+
+footer p {
+    margin: 20px 0 0 0;
+}
+footer span {
+    color: grey;
+    margin: 0 1em 0 1em;
+}
+
+
+
+
+.toctree-wrapper {
+    display: none;
+}
+
+
+section table {
+    border-collapse: collapse;
+    border: solid 2px black;
+    margin-bottom: 10px;
+    width: 90%;
+}
+section table caption {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+section table td,
+section table th {
+    border: solid 1px black;
+    padding: 10px;
+}
+
+#nav a {
+    font-size: medium;
+}
