@@ -6,7 +6,7 @@
 
 ## Solution
 
-## Example(s)
+## Examples
 
 ## Discussion
 

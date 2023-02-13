@@ -25,7 +25,7 @@ The questions are given below with links to one or more _patterns_ - common ways
    "How do I indicate the provenance/lineage of Concepts, Collections & ConceptSchemes?", "`Provenance <patterns/provenance.html>`_"
    "How do I reuse others' vocabularies, with or without alteration?", "`Vocab Derivation <patterns/vocab-derivation.html>`_"
    "How do I indicate a non-Linked Data source for my vocab?", "`Provenance <patterns/provenance.html>`_"
-   "How do I describe people and organisations related to my vocab? ", "`Agent Referencing <patterns/agent-referencing.html>`_, Qualified Role <patterns/qualified-role.html>`_"
+   "How do I describe people and organisations related to my vocab? ", "`Agent Referencing <patterns/agent-referencing.html>`_, `Qualified Role <patterns/qualified-role.html>`_"
 ```
 
 ```{eval-rst}

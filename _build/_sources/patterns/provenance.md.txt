@@ -17,7 +17,7 @@ Select from one of the following three properties to indicate provenance:
 * Dublin Core Terms' `provenance`
   * for describing provenance in text
   
-## Example(s)
+## Examples
 
 ## Discussion
 

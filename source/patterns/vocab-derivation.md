@@ -37,7 +37,7 @@ Indicate the way in which this vocabulary derives from its source using the [Voc
 
 _This property is only relevant if the source is a controlled vocabulary, as opposed to a textual source from which this vocab ie extracted. Ideally , the source should be a SKOS vocab too._
 
-## Example(s)
+## Examples
 
 ### 1. publisher/maintainer
 
