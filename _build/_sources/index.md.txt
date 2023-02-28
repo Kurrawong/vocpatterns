@@ -20,7 +20,7 @@ The questions are given below with links to one or more _patterns_ - common ways
 .. csv-table::
    :header: "Question", "Pattern(s)"
 
-   "How do I create and maintain versions of Cocepts within a vocabulary?", "`Concept Versioning <patterns/concept-versioning.html>`_"
+   "How do I create and maintain versions of Concepts within a vocabulary?", "`Concept Versioning <patterns/concept-versioning.html>`_"
    "How to I indicate the source of my vocabulary?", "`Vocab Derivation <patterns/vocab-derivation.html>`_, `Provenance <patterns/provenance.html>`_"
    "How do I indicate the provenance/lineage of Concepts, Collections & ConceptSchemes?", "`Provenance <patterns/provenance.html>`_"
    "How do I reuse others' vocabularies, with or without alteration?", "`Vocab Derivation <patterns/vocab-derivation.html>`_"
@@ -40,6 +40,12 @@ The questions are given below with links to one or more _patterns_ - common ways
    patterns/qualified-role.md
    patterns/vocab-derivation.md
 ```
+
+## Contributing / Requesting
+
+If you would like to contribute either a Question or a Pattern, please either raise a descriptive ticket in this website's Issue Tracker, <https://github.com/Kurrawong/vocpatterns/issues>, or raise a Pull Request with the content. Try copying and pasting from existing patterns' source files in <https://github.com/Kurrawong/vocpatterns/tree/master/source/patterns>.
+
+If you would just like to request a Pattern or Patterns for a Question, just raise the question as an Issue as per those in <https://github.com/Kurrawong/vocpatterns/issues>. We'll try and list the question and either match it to existing patterns or create a new one for it!
 
 ## Contact
 
